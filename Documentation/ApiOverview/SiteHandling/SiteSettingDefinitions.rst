@@ -22,8 +22,8 @@ TypoScript Constants.
 
 All available settings are displayed in the :ref:`site-settings-editor`.
 
-The site settings provided by an extension can be automatically documented in the
-extensions manual, see
+The site settings provided by an extension can be automatically documented in
+the extensions manual, see
 :ref:`site settings documentation <h2document:reference-site-settings>`.
 
 ..  contents:: Table of contents
@@ -121,6 +121,10 @@ Site setting definition properties
 
             ..  literalinclude:: _Settings/_enum_settings.definitions.yaml
                 :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+
+..  note::
+    The `settings.definitions.yaml` does not allow any kind of imports. All
+    settings must be defined in a single file.
 
 ..  _definition-types:
 
@@ -266,3 +270,70 @@ Definition types
         UID in the field.
 
         ..  literalinclude:: _Settings/_settings.definitions.page.yaml
+
+..  _site-settings-definition-translation:
+
+Translating labels and descriptions for settings
+================================================
+
+To translate the labels and descriptions for the settings you have defined in
+:file:`settings.definition.yml`, remove the `label` entry from there and create a
+:file:`labels.xlf` file in the same directory.
+
+The key of the translation unit must be the key of the setting.
+For example, the label of the setting is simply `label` in the XLF file.
+
+.. rubric:: Example
+
+..  code-block:: xml
+    :caption: Example label definition in labels.xlf
+
+    <trans-unit id="label">
+        <source>My Custom Set</source>
+    </trans-unit>
+
+..  _site-settings-definition-translation-category:
+
+Translating category labels
+---------------------------
+
+To translate category labels and descriptions, use the following format:
+
+..  code-block:: xml
+    :caption: Example category label definitions
+
+    <trans-unit id="categories.mycustomcategory">
+        <source>My Custom Category</source>
+    </trans-unit>
+
+    <trans-unit id="categories.description.mycustomcategory">
+        <source>Description of My Custom Category</source>
+    </trans-unit>
+
+..  _site-settings-definition-translation-labels:
+
+Translating settings labels and descriptions
+--------------------------------------------
+
+To translate the label and description of a specific setting, use this structure:
+
+..  code-block:: xml
+    :caption: Example setting label definitions
+
+    <trans-unit id="settings.mycustomsetting">
+        <source>My Custom Setting</source>
+    </trans-unit>
+
+    <trans-unit id="settings.description.mycustomsetting">
+        <source>My Custom Setting description</source>
+    </trans-unit>
+
+..  _site-settings-definition-translation-languages:
+
+Translations for other languages
+--------------------------------
+
+To provide translations in another language, use the two-letter language prefix
+in the filename. For example:
+
+:file:`de.labels.xlf`

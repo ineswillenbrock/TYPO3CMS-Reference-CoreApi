@@ -208,7 +208,7 @@ in validator resolver configurations.
     You must manually create and configure a `DisjunctionValidator` when needed.
 
     It is not currently possible to use this validator directly via
-    `#[Validate(...)]` annotations.
+    `#[Validate(...)]` attributes.
 
 ..  _extbase-validator-emailaddress:
 
@@ -259,6 +259,8 @@ Options:
     The minimum file size to accept in bytes, accepts `K` / `M` / `G` suffixes
 `maximum`
     The maximum file size to accept
+`byteSizeUnits`
+    Byte size units string used for labels in `\TYPO3\CMS\Core\Utility\GeneralUtility::formatSize()` function
 
 
 Internally :php:`\TYPO3\CMS\Core\Type\File\FileInfo` is used to determine the
@@ -359,7 +361,7 @@ Options:
     Can contain a string or `LLL:EXT:...` reference that is displayed when
     an uploaded file extension does not match the default MIME-type registered for it.
 
-When using the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute
+When using the :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute
 the `MimeTypeValidator` is used internally when defined in the `validation['mimeType']`
 section:
 
@@ -376,7 +378,7 @@ configure the validator directly:
 The example above showcases an "object" like `myArgument` containing
 a property `myPropertyName` that relates to an uploaded file. It is then
 configured with plain PHP API (without using
-the attribute `FileUpload` attribute/annotation mentioned above).
+the attribute `FileUpload` attribute mentioned above).
 
 It is important how the
 `$fileHandlingServiceConfiguration->addFileUploadConfiguration()` method
@@ -385,7 +387,7 @@ Extbase's internal property mapping, the `->skipProperties()` call
 takes care of this.
 
 Generally, for better "developer experience", it is suggested to
-use the auto-configuration provided by using the PHP attribute/annotation
+use the auto-configuration provided by using the PHP attribute
 where possible.
 
 ..  _extbase-validator-notempty:
@@ -452,7 +454,7 @@ Example: Validate percentage
 
 ..  code-block:: php
 
-    use TYPO3\CMS\Extbase\Annotation\Validate;
+    use TYPO3\CMS\Extbase\Attribute\Validate;
 
     class SettingsForm
     {
@@ -507,7 +509,7 @@ Validate that a value contains only alphanumeric characters:
 
 ..  code-block:: php
 
-    use TYPO3\CMS\Extbase\Annotation\Validate;
+    use TYPO3\CMS\Extbase\Attribute\Validate;
 
     class UserForm
     {
@@ -529,7 +531,7 @@ Validate a 5-digit postal code with a custom error message:
 
 ..  code-block:: php
 
-    use TYPO3\CMS\Extbase\Annotation\Validate;
+    use TYPO3\CMS\Extbase\Attribute\Validate;
 
     class AddressForm
     {
@@ -659,7 +661,7 @@ This example ensures that a field contains a valid external website address.
 
 ..  code-block:: php
 
-    use TYPO3\CMS\Extbase\Annotation\Validate;
+    use TYPO3\CMS\Extbase\Attribute\Validate;
 
     class UserProfile
     {

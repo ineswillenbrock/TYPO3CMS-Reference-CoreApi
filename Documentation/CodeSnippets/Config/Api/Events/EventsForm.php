@@ -21,8 +21,20 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Form\Event\BeforeFormIsDeletedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Form/BeforeFormIsDeletedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Form\Event\BeforeRenderableIsAddedToFormEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Form/BeforeRenderableIsAddedToFormEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Form\Event\BeforeRenderableIsRemovedFromFormEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Form/BeforeRenderableIsRemovedFromFormEvent.rst.txt',
         'withCode' => false,
     ],
     [
